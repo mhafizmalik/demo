@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    image: laravelfans/laravel
+
+  database:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: genpass
+
+  phpmyadmin:
+    image: phpmyadmin
+
+  mailhog:
+    image: mailhog/mailhog

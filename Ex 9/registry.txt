@@ -1,0 +1,11 @@
+## Set Up a Docker Registry Container
+docker run -d -p 5000:5000 --restart=always --name registry registry:2
+
+# Tag your image
+docker tag your-image:tag localhost:5000/your-image:tag
+
+# Push your image to your registry
+docker push localhost:5000/your-image:tag
+
+# Pull your image to your registry
+docker pull localhost:5000/your-image:tag
