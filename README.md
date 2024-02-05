@@ -4,29 +4,32 @@ Welcome to the Docker Demo Labs! This collection of labs is designed to help you
 
 ## Labs Overview
 
-1. **Lab 1 - Basic Docker Commands**
+1. **Exercise 1 - Dcoker Ubuntu Installation**
+   - Installation Docker on Ubuntu.
+   - 
+2. **Exercise 2 - Basic Docker Commands**
    - Introduction to fundamental Docker commands.
 
-2. **Lab 2 - Docker Run**
-   - Explore the various aspects of running containers.
+3. **Exercise 3 - Docker Run**
+   - Explore the various aspects of Docker Run.
 
-3. **Lab 3 - Docker Images**
-   - Learn about Docker images, their creation, and management.
+4. **Exercise 4 - Docker Run - Port Mapping**
+   - Learn Docker Run - PORT Mapping.
 
-4. **Lab 4 - Docker Compose**
+5. **Exercise 5 - Docker Image**
    - Dive into Docker Compose for multi-container application setups.
 
-5. **Lab 5 - Docker Registry**
+6. **Exercise 6 - Docker Registry**
    - Understand Docker registries for image storage and distribution.
 
-6. **Lab 6 - Docker Storage**
-   - Explore Docker storage options and best practices.
+7. **Exercise 7 - Docker Compose**
+   - Most basic Docker Compose.
 
-7. **Lab 7 - Docker Networking**
-   - Learn about Docker networking for connecting containers.
+8. **Exercise 8 - Docker Compose Extended**
+   - More sample Docker Compose.
 
-8. **Lab 8 - Docker Swarm**
-   - Delve into Docker Swarm for orchestration and clustering.
+9. **Exercise 9 - Docker Compose (Wordpress)**
+   - Sample Docker Compose for Wordpress
 
 ## Getting Started
 
