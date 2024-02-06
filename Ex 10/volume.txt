@@ -1,0 +1,9 @@
+#With Volume Mounting
+#This example ensures that data persists even if the container is stopped or removed by mounting a volume from the host system to store MySQL data.
+
+docker run -d --name mysql_with_volume -e MYSQL_ROOT_PASSWORD=genpass -v /path/on/host:/var/lib/mysql mysql:latest
+
+#Without Volume Mounting
+#This example runs MySQL without mounting a volume, so data will not persist after the container is stopped or removed.
+
+docker run -d --name mysql_without_volume -e MYSQL_ROOT_PASSWORD=genpass mysql:latest

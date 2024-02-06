@@ -31,6 +31,12 @@ Welcome to the Docker Demo Labs! This collection of labs is designed to help you
 9. **Exercise 9 - Docker Compose (Wordpress)**
    - Sample Docker Compose for Wordpress
 
+10. **Exercise 10 - Docker Storage(Volume)**
+   - Sample Docker Volume
+
+11. **Exercise 11 - Docker Swarm**
+   - Sample Docker Swarm
+
 ## Getting Started
 
 To get started with a specific lab, navigate to the corresponding directory and follow the provided instructions.
