@@ -1,0 +1,20 @@
+1. manager node
+docker swarm init --advertise-addr <manager1_ip>
+
+2. worker node
+docker swarm join --token <token> <manager_ip>:<manager_port>
+
+3. verify node join swarm
+docker node ls
+
+4. deploy service to swarm
+docker service create --name webserver -p 80:80 --replicas 3 nginx
+
+5. verify service
+docker service ls
+
+6. scale
+docker service scale webserver=5
+
+7. verify scale
+docker service ps webserver
