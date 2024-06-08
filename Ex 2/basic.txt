@@ -1,48 +1,49 @@
-Description: Run a command in a new container.
-Example: docker run -it ubuntu /bin/bash
-Explanation: This command creates and starts a new container based on the specified image (ubuntu in this case) and runs the specified command (/bin/bash in this case) in an interactive mode (-it).
-docker ps:
+# Description: Run a command in a new container.
+# Example: docker run -it ubuntu /bin/bash
+# Explanation: This command creates and starts a new container based on the specified image (ubuntu in this case) and runs the specified command (/bin/bash in this case) in an interactive mode (-it).
+docker run -it ubuntu /bin/bash
 
-Description: List running containers.
-Example: docker ps
-Explanation: This command shows a list of containers that are currently running, displaying information such as Container ID, image used, command being run, and status.
-docker ps -a:
+# Description: List running containers.
+# Example: docker ps
+# Explanation: This command shows a list of containers that are currently running, displaying information such as Container ID, image used, command being run, and status.
+docker ps
 
-Description: List all containers (running and stopped).
-Example: docker ps -a
-Explanation: This command displays information about all containers, including those that are currently running and those that have stopped.
-docker images:
+# Description: List all containers (running and stopped).
+# Example: docker ps -a
+# Explanation: This command displays information about all containers, including those that are currently running and those that have stopped.
+docker ps -a
 
-Description: List local images.
-Example: docker images
-Explanation: This command shows a list of Docker images that are available locally on your system.
-docker pull:
+# Description: List local images.
+# Example: docker images
+# Explanation: This command shows a list of Docker images that are available locally on your system.
+docker images
 
-Description: Pull an image from a registry.
-Example: docker pull nginx
-Explanation: This command downloads a specified image from a Docker registry (such as Docker Hub) to your local machine.
-docker build:
+# Description: Pull an image from a registry.
+# Example: docker pull nginx
+# Explanation: This command downloads a specified image from a Docker registry (such as Docker Hub) to your local machine.
+docker pull nginx
 
-Description: Build an image from a Dockerfile.
-Example: docker build -t my-custom-image .
-Explanation: This command builds a Docker image from a specified Dockerfile. The -t option allows you to tag the image with a name (e.g., my-custom-image).
-docker stop:
+# Description: Build an image from a Dockerfile.
+# Example: docker build -t my-custom-image .
+# Explanation: This command builds a Docker image from a specified Dockerfile. The -t option allows you to tag the image with a name (e.g., my-custom-image).
+docker build -t my-custom-image .
 
-Description: Stop a running container.
-Example: docker stop container-id
-Explanation: This command stops a running container. You need to provide the Container ID or Name as an argument.
-docker start:
+# Description: Stop a running container.
+# Example: docker stop container-id
+# Explanation: This command stops a running container. You need to provide the Container ID or Name as an argument.
+docker stop container-id
 
-Description: Start a stopped container.
-Example: docker start container-id
-Explanation: This command starts a previously stopped container. You need to provide the Container ID or Name as an argument.
-docker restart:
+# Description: Start a stopped container.
+# Example: docker start container-id
+# Explanation: This command starts a previously stopped container. You need to provide the Container ID or Name as an argument.
+docker start container-id
 
-Description: Restart a running or stopped container.
-Example: docker restart container-id
-Explanation: This command stops and then starts a container. You need to provide the Container ID or Name as an argument.
-docker exec:
+# Description: Restart a running or stopped container.
+# Example: docker restart container-id
+# Explanation: This command stops and then starts a container. You need to provide the Container ID or Name as an argument.
+docker restart container-id
 
-Description: Run a command in a running container.
-Example: docker exec -it container-id /bin/bash
-Explanation: This command allows you to execute a command in a running container. The -it option enables interactive mode.
+# Description: Run a command in a running container.
+# Example: docker exec -it container-id /bin/bash
+# Explanation: This command allows you to execute a command in a running container. The -it option enables interactive mode.
+docker exec -it container-id /bin/bash

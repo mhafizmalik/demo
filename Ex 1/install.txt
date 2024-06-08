@@ -1,12 +1,19 @@
-https://docs.docker.com/engine/install/ubuntu/
+# Ensure the system is up-to-date
+sudo apt update && sudo apt upgrade -y
 
-apt install curl -y
-apt install git -y
+# Install necessary tools
+sudo apt install curl -y
+sudo apt install git -y
 
-# download and install docker
+# Download and install Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
-
 sh ./get-docker.sh
 
-# test docker run
-docker run docker/whalesay cowsay hello world
+# Add current user to the Docker group to avoid using 'sudo' for Docker commands
+sudo usermod -aG docker $USER
+
+# Apply group changes without logout/login
+newgrp docker
+
+# Test Docker installation with a sample container
+docker run docker/whalesay cowsay "Hello, world"
