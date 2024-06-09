@@ -1,0 +1,50 @@
+#Download the Minikube binary
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+#Install the Minikube
+install minikube-linux-amd64 /usr/local/bin/minikube
+
+#Verify the installation
+minikube version
+
+#Download the latest release of kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+#Make the kubectl binary executable:
+chmod +x kubectl
+
+#Move the binary to your PATH:
+mv kubectl /usr/local/bin/
+
+#Verify the installation:
+kubectl version --client
+
+#Start local kubernetes cluster
+minikube start --force
+
+#Verify the cluster is running
+kubectl cluster-info
+
+#Create a simple Pod configuration file (pod.yaml) and apply the configuration
+kubectl apply -f pod.yaml
+
+#Create a Deployment configuration file (deployment.yaml) and apply the configuration
+kubectl apply -f deployment.yaml
+
+#Accessing the Cluster deployment using NodePort and Minikube IP
+minikube ip
+
+#Expose the Deployment as a NodePort Service:
+kubectl expose deployment nginx-deployment --type=NodePort --port=80
+
+#Install nginx as reverse proxy
+apt install nginx
+
+#Create or Edit the Nginx Configuration File (minikube.proxy)
+nano /etc/nginx/sites-available/minikube-proxy
+
+#Check nginx configuration
+nginx -t
+
+#Start nginx
+systemctl start nginx

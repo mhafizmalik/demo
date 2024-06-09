@@ -1,0 +1,12 @@
+Summary of Commands
+kubectl cluster-info - Get cluster information.
+kubectl get nodes - List all nodes in the cluster.
+kubectl get pods - List all pods in the current namespace.
+kubectl describe pod <pod-name> - Describe a specific pod.
+kubectl get services - List all services in the current namespace.
+kubectl expose deployment <deployment-name> --type=LoadBalancer --port=80 --target-port=8080 - Expose a deployment as a service.
+kubectl create deployment <deployment-name> --image=<image-name> - Create a deployment using a specified image.
+kubectl scale deployment <deployment-name> --replicas=<number> - Scale a deployment to the specified number of replicas.
+kubectl apply -f <file.yaml> - Apply a configuration from a YAML file.
+kubectl delete <resource-type> <resource-name> - Delete a specified resource.
+kubectl logs <pod-name> - View the logs of a container in a Kubernetes pod

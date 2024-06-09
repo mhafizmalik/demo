@@ -1,0 +1,44 @@
+
+#### Initialize Swarm on Manager Node
+docker swarm init --advertise-addr <MANAGER-IP>
+# Note the join command output
+
+#### Join Worker Nodes to Swarm
+docker swarm join --token <TOKEN> <MANAGER-IP>:2377
+
+#### Verify Nodes
+docker node ls
+
+#### Deploy Services in Swarm Mode
+docker service create --name my-web --publish published=8080,target=80 --replicas 3 nginx
+docker service ls
+docker service ps my-web
+
+#### Scale Services
+docker service scale my-web=5
+docker service ps my-web
+
+#### Rolling Updates
+docker service update --image nginx:latest my-web
+docker service ps my-web
+
+#### Docker Volumes for Persistent Storage
+# Create a Docker Volume
+docker volume create my_volume
+
+# Deploy a Service with a Volume
+docker service create --name volume-service --mount type=volume,source=my_volume,target=/data nginx
+
+# Verify the Volume is Mounted
+docker exec -it $(docker ps -q -f name=volume-service) ls /data
+
+#### Docker Networking In-Depth
+# Create an Overlay Network
+docker network create --driver overlay my_overlay
+
+# Deploy Services on the Overlay Network
+docker service create --name web --network my_overlay nginx
+docker service create --name db --network my_overlay mysql
+
+# Inspect the Network
+docker network inspect my_overlay

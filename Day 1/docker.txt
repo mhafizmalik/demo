@@ -1,0 +1,59 @@
+# Ensure the system is up-to-date
+apt update && sudo apt upgrade -y
+
+# Download and install Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh ./get-docker.sh
+
+# Verify Docker installation
+docker --version
+
+# Test Docker installation with a sample container
+docker run mhafizm/whalesay:latest
+
+#### Docker Commands and Hands-On Practical Notes
+
+# Pull an Image from Docker Hub
+docker pull nginx
+
+# List Docker Images
+docker images
+
+# Run a Container
+docker run -d -p 8080:80 --name mynginx nginx
+
+# List Running Containers
+docker ps
+
+# Stop a Running Container
+docker stop mynginx
+
+# Start a Stopped Container
+docker start mynginx
+
+# Remove a Container
+docker rm mynginx
+
+# Build a Docker Image from a Dockerfile
+# Create a Dockerfile
+echo -e "FROM nginx:latest
+COPY . /usr/share/nginx/html" > Dockerfile
+
+# Build the Image
+docker build -t mynginx:latest .
+
+# Run a Container from the Built Image
+docker run -d -p 8080:80 --name mynginx mynginx:latest
+
+# Push an Image to Docker Hub
+# Log in to Docker Hub
+docker login -u <your-username> -p <your-password>
+
+# Tag the Image
+docker tag mynginx:latest <your-username>/mynginx:latest
+
+# Push the Image
+docker push <your-username>/mynginx:latest
+
+# Pull the Image from Docker Hub
+docker pull <your-username>/mynginx:latest

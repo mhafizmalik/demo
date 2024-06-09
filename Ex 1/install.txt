@@ -1,19 +1,12 @@
 # Ensure the system is up-to-date
-sudo apt update && sudo apt upgrade -y
+apt update && sudo apt upgrade -y
 
-# Install necessary tools
-sudo apt install curl -y
-sudo apt install git -y
+# Reboot
+reboot
 
 # Download and install Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh ./get-docker.sh
 
-# Add current user to the Docker group to avoid using 'sudo' for Docker commands
-sudo usermod -aG docker $USER
-
-# Apply group changes without logout/login
-newgrp docker
-
 # Test Docker installation with a sample container
-docker run docker/whalesay cowsay "Hello, world"
+docker run mhafizm/whalesay:latest
