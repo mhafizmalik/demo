@@ -2,24 +2,24 @@ version: '3'
 
 services:
   web:
-    image: laravelfans/laravel
+    image: 10.100.100.21:5000/laravel
     ports:
-      - "127.0.0.1:8001:80"
+      - "8001:80"
 
   database:
-    image: mysql
+    image: 10.100.100.21:5000/mysql
     environment:
       MYSQL_ROOT_PASSWORD: genpass
     ports:
       - "127.0.0.1:3306:3306"
 
   phpmyadmin:
-    image: phpmyadmin
+    image: 10.100.100.21:5000/phpmyadmin
     ports:
-      - "127.0.0.1:8080:80"
+      - "8080:80"
 
   mailhog:
-    image: mailhog/mailhog
+    image: 10.100.100.21:5000/mailhog
     ports:
       - "127.0.0.1:1025:1025"
-      - "127.0.0.1:8025:8025"
+      - "8025:8025"

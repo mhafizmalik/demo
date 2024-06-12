@@ -7,3 +7,8 @@ docker run -d --name mysql_with_volume -e MYSQL_ROOT_PASSWORD=genpass -v /path/o
 #This example runs MySQL without mounting a volume, so data will not persist after the container is stopped or removed.
 
 docker run -d --name mysql_without_volume -e MYSQL_ROOT_PASSWORD=genpass mysql:latest
+
+
+docker run -d -p 8080:80 --name mynginx2 mycuba:latest
+
+docker run -d -p 8888:80 -v /root:/usr/share/nginx/html my-cuba:latest

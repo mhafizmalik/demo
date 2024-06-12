@@ -1,5 +1,5 @@
 # Ensure the system is up-to-date
-apt update && sudo apt upgrade -y
+apt update && apt upgrade -y
 
 # Reboot
 reboot
