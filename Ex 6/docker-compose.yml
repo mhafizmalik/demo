@@ -2,15 +2,15 @@ version: '3'
 
 services:
   web:
-    image: laravelfans/laravel
+    image: 10.100.100.21:5000/laravel
 
   database:
-    image: mysql
+    image: 10.100.100.21:5000/mysql
     environment:
       MYSQL_ROOT_PASSWORD: genpass
 
   phpmyadmin:
-    image: phpmyadmin
+    image: 10.100.100.21:5000/phpmyadmin
 
   mailhog:
-    image: mailhog/mailhog
+    image: 10.100.100.21:5000/mailhog
