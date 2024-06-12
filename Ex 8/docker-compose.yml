@@ -24,7 +24,7 @@ services:
     links:
       - db:db
     ports:
-      - "8001:80"
+      - "8881:80"
     container_name: wp-phpmyadmin
     environment:
       PMA_HOST: db
@@ -40,7 +40,7 @@ services:
       - db
     image: 10.100.100.21:5000/wordpress
     ports:
-      - "8000:80"
+      - "8888:80"
     container_name: wp-wordpress
     environment:
       WORDPRESS_DB_HOST: db
