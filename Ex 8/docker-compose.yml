@@ -20,7 +20,7 @@ services:
       - wp
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:5
+    image: 10.100.100.21:5000/phpmyadmin
     links:
       - db:db
     ports:
@@ -38,7 +38,7 @@ services:
   wordpress:
     depends_on:
       - db
-    image: wordpress:latest
+    image: 10.100.100.21:5000/wordpress
     ports:
       - "8000:80"
     container_name: wp-wordpress

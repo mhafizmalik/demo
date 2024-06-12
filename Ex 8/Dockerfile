@@ -1,4 +1,4 @@
-FROM mysql:5.7
+FROM localhost:5000/mysql
 
 # Set the default character set and collation for the entire MySQL instance
 ENV MYSQL_CHARSET=utf8mb4
