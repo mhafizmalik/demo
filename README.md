@@ -1,50 +1,68 @@
-# Docker Demo Lab
+# Docker Hands-On Labs
 
-Welcome to the Docker Demo Labs! This collection of labs is designed to help you master Docker through hands-on exercises.
+A one-day, hands-on Docker course — **9:00 am to 5:00 pm** — that takes you from your
+first containers to orchestrating with Docker Swarm. You learn by typing and running
+commands, not by watching slides.
 
-## Labs Overview
+> **Before the training day:** install Docker by following **[INSTALL.md](INSTALL.md)**.
+> Installation is a prerequisite — we start at 9:00 am with a quick check that everyone's
+> Docker works, then go straight into the labs.
 
-1. **Exercise 1 - Dcoker Ubuntu Installation**
-   - Installation Docker on Ubuntu.
-   - 
-2. **Exercise 2 - Basic Docker Commands**
-   - Introduction to fundamental Docker commands.
+All labs are **self-contained**: they use public Docker Hub images (nginx, ubuntu, php,
+mysql, wordpress, phpmyadmin, mailhog), so nothing depends on an internal server.
 
-3. **Exercise 3 - Docker Run**
-   - Explore the various aspects of Docker Run.
+## Labs
 
-4. **Exercise 4 - Docker Run - Port Mapping**
-   - Learn Docker Run - PORT Mapping.
+| # | Lab | You'll be able to... |
+|---|-----|----------------------|
+| 1 | [Basic Docker Commands](Lab%2001%20-%20Basic%20Commands/) | Run, list, inspect, and manage containers |
+| 2 | [Docker Run & Port Mapping](Lab%2002%20-%20Run%20and%20Port%20Mapping/) | Serve an app and reach it from the browser |
+| 3 | [Build Your First Image](Lab%2003%20-%20Build%20Your%20First%20Image/) | Write a Dockerfile and build an image |
+| 4 | [Web App Image](Lab%2004%20-%20Web%20App%20Image/) | Use env vars and a custom port in an image |
+| 5 | [Image with Dependencies](Lab%2005%20-%20Image%20with%20Dependencies/) | Install packages/extensions in a build |
+| 6 | [Data Persistence with Volumes](Lab%2006%20-%20Volumes/) | Keep data across container removal |
+| 7 | [Docker Compose](Lab%2007%20-%20Docker%20Compose/) | Run a multi-service app from one file |
+| 8 | [WordPress Stack](Lab%2008%20-%20WordPress%20Stack/) | Wire app + DB + admin with volumes |
+| 9 | [Docker Swarm](Lab%2009%20-%20Docker%20Swarm/) | Deploy, scale, self-heal, rolling-update |
 
-5. **Exercise 5 - Docker Image**
-   - Dive into Docker Compose for multi-container application setups.
+## Schedule (9:00 am – 5:00 pm)
 
-6. **Exercise 6 - Docker Registry**
-   - Understand Docker registries for image storage and distribution.
+| Time | Session |
+|------|---------|
+| 09:00 – 09:15 | Welcome & verify your setup |
+| 09:15 – 09:45 | Docker concepts (image vs container, architecture) |
+| 09:45 – 10:25 | Lab 1 — Basic commands |
+| 10:25 – 11:05 | Lab 2 — Run & port mapping |
+| 11:05 – 11:15 | Break |
+| 11:15 – 12:00 | Lab 3 — Build your first image |
+| 12:00 – 12:45 | Lab 4 — Build a web app image |
+| 12:45 – 13:00 | Q&A / buffer |
+| 13:00 – 14:00 | Lunch |
+| 14:00 – 14:40 | Lab 5 — Image with dependencies |
+| 14:40 – 15:20 | Lab 6 — Data persistence with volumes |
+| 15:20 – 15:30 | Break |
+| 15:30 – 16:05 | Lab 7 — Docker Compose |
+| 16:05 – 16:30 | Lab 8 — Full WordPress stack |
+| 16:30 – 16:55 | Lab 9 — Docker Swarm |
+| 16:55 – 17:00 | Wrap-up & next steps |
 
-7. **Exercise 7 - Docker Compose**
-   - Most basic Docker Compose.
+## How each lab works
+Every lab folder has a `README.md` with the Objective, Steps, and Expected result, plus any
+files you need (`Dockerfile`, `script.sh`, `index.php`, `compose.yaml`) ready to run. Type
+the commands yourself — the muscle memory is the point.
 
-8. **Exercise 8 - Docker Compose Extended**
-   - More sample Docker Compose.
+## Cleanup (careful — deletes things)
 
-9. **Exercise 9 - Docker Compose (Wordpress)**
-   - Sample Docker Compose for Wordpress
+```bash
+docker swarm leave --force          # if a swarm is still active
+docker compose down -v              # in any compose folder you used
+docker rm -f $(docker ps -aq)       # remove all containers
+docker system prune -a --volumes    # reclaim disk (images, networks, volumes)
+```
 
-10. **Exercise 10 - Docker Storage(Volume)**
-   - Sample Docker Volume
-
-11. **Exercise 11 - Docker Swarm**
-   - Sample Docker Swarm
-
-## Getting Started
-
-To get started with a specific lab, navigate to the corresponding directory and follow the provided instructions.
-
-Feel free to contribute, report issues, or suggest improvements. Happy learning!
-
----
-
-**Note:** This repository is a part of the Docker Demo course.
-
-
+## Where to go next
+- Multi-stage builds to shrink production images
+- Image security: scanning, minimal/official base images, non-root users
+- `docker stack deploy` to run Compose files on a Swarm
+- **Kubernetes** as a dedicated, more advanced course once Swarm feels comfortable
+- Docs: <https://docs.docker.com> • Free practice: <https://labs.play-with-docker.com>

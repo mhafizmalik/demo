@@ -1,0 +1,40 @@
+services:
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: wpdb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: genpass
+      MYSQL_ROOT_PASSWORD: genpass
+    volumes:
+      - db_data:/var/lib/mysql
+    networks: [wp]
+
+  wordpress:
+    image: wordpress:latest
+    depends_on: [db]
+    ports:
+      - "8888:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: genpass
+      WORDPRESS_DB_NAME: wpdb
+    volumes:
+      - wp_data:/var/www/html
+    networks: [wp]
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8881:80"
+    environment:
+      PMA_HOST: db
+    networks: [wp]
+
+volumes:
+  db_data:
+  wp_data:
+
+networks:
+  wp:

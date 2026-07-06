@@ -1,0 +1,18 @@
+services:
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: genpass
+      MYSQL_DATABASE: appdb
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
