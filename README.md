@@ -33,18 +33,18 @@ mysql, wordpress, phpmyadmin, mailhog), so nothing depends on an internal server
 | 09:15 – 09:45 | Docker concepts (image vs container, architecture) |
 | 09:45 – 10:25 | Lab 1 — Basic commands |
 | 10:25 – 11:05 | Lab 2 — Run & port mapping |
-| 11:05 – 11:15 | Break |
-| 11:15 – 12:00 | Lab 3 — Build your first image |
+| 11:05 – 11:20 | Break |
+| 11:20 – 12:00 | Lab 3 — Build your first image |
 | 12:00 – 12:45 | Lab 4 — Build a web app image |
 | 12:45 – 13:00 | Q&A / buffer |
 | 13:00 – 14:00 | Lunch |
 | 14:00 – 14:40 | Lab 5 — Image with dependencies |
-| 14:40 – 15:20 | Lab 6 — Data persistence with volumes |
-| 15:20 – 15:30 | Break |
+| 14:40 – 15:15 | Lab 6 — Data persistence with volumes |
+| 15:15 – 15:30 | Break |
 | 15:30 – 16:05 | Lab 7 — Docker Compose |
 | 16:05 – 16:30 | Lab 8 — Full WordPress stack |
 | 16:30 – 16:55 | Lab 9 — Docker Swarm |
-| 16:55 – 17:00 | Wrap-up & next steps |
+| 16:55 – 17:00 | Wrap-up & closing |
 
 ## How each lab works
 Every lab folder has a `README.md` with the Objective, Steps, and Expected result, plus any
