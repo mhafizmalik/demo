@@ -7,7 +7,22 @@
 ```bash
 docker run -d --name db1 -e MYSQL_ROOT_PASSWORD=secret mysql:8
 # ... MySQL writes its data inside the container ...
+
+docker exec -it db1 /bin/bash
+
+# using mysql create sample
+mysql -uroot -psecret
+
+mysql> show databases;
+
+mysql> create database lab6;
+
 docker rm -f db1     # data is gone with the container
+
+# ... optional rerun mysql container
+docker run -d --name db1 -e MYSQL_ROOT_PASSWORD=secret mysql:8
+
+# ... database gone
 ```
 
 ## Keep data with a named volume
