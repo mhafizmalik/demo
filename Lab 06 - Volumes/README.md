@@ -6,23 +6,29 @@
 
 ```bash
 docker run -d --name db1 -e MYSQL_ROOT_PASSWORD=secret mysql:8
-# ... MySQL writes its data inside the container ...
+# wait ~20s for MySQL to finish starting (check with: docker logs db1)
 
+# open a shell inside the container and create a sample database
 docker exec -it db1 /bin/bash
 
-# using mysql create sample
 mysql -uroot -psecret
 
 mysql> show databases;
 
 mysql> create database lab6;
 
-docker rm -f db1     # data is gone with the container
+mysql> exit
+exit    # leave the container shell
 
-# ... optional rerun mysql container
+# now destroy the container — its writable layer (and MySQL's data) goes with it
+docker rm -f db1
+
+# run a "new" container with the same name and check again
 docker run -d --name db1 -e MYSQL_ROOT_PASSWORD=secret mysql:8
 
-# ... database gone
+docker exec -it db1 mysql -uroot -psecret -e "show databases;"
+
+# lab6 is gone — this is a fresh container with a fresh writable layer
 ```
 
 ## Keep data with a named volume
@@ -31,12 +37,30 @@ docker run -d --name db1 -e MYSQL_ROOT_PASSWORD=secret mysql:8
 docker volume create mysqldata
 docker run -d --name db2 -e MYSQL_ROOT_PASSWORD=secret \
   -v mysqldata:/var/lib/mysql mysql:8
+# ... MySQL now writes its data into the volume ...
 
-# remove the container, recreate with the SAME volume:
-docker rm -f db2
+docker exec -it db2 /bin/bash
+
+# using mysql create sample
+mysql -uroot -psecret
+
+mysql> show databases;
+
+mysql> create database lab6;
+
+docker rm -f db2     # container is gone, but the volume survives
+
+# ... recreate with the SAME volume:
 docker run -d --name db2 -e MYSQL_ROOT_PASSWORD=secret \
   -v mysqldata:/var/lib/mysql mysql:8
-# the database is still there — the volume outlived the container
+
+docker exec -it db2 /bin/bash
+
+mysql -uroot -psecret
+
+mysql> show databases;
+
+# ... lab6 is still there — the volume outlived the container
 ```
 
 ## Bind-mount a host folder (live files)
