@@ -35,8 +35,7 @@ docker exec -it db1 mysql -uroot -psecret -e "show databases;"
 
 ```bash
 docker volume create mysqldata
-docker run -d --name db2 -e MYSQL_ROOT_PASSWORD=secret \
-  -v mysqldata:/var/lib/mysql mysql:8
+docker run -d --name db2 -e MYSQL_ROOT_PASSWORD=secret -v mysqldata:/var/lib/mysql mysql:8
 # ... MySQL now writes its data into the volume ...
 
 docker exec -it db2 /bin/bash
@@ -51,8 +50,7 @@ mysql> create database lab6;
 docker rm -f db2     # container is gone, but the volume survives
 
 # ... recreate with the SAME volume:
-docker run -d --name db2 -e MYSQL_ROOT_PASSWORD=secret \
-  -v mysqldata:/var/lib/mysql mysql:8
+docker run -d --name db2 -e MYSQL_ROOT_PASSWORD=secret -v mysqldata:/var/lib/mysql mysql:8
 
 docker exec -it db2 /bin/bash
 
